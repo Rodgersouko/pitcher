@@ -1,34 +1,45 @@
-<!DOCTYPE html>
-<html>
+<nav class="mb-1 navbar navbar-expand-lg navbar-dark " style="background-color: blue;">
+    <a class="navbar-brand" href="{{url_for('main.index')}}"><strong style="text-align: center;" >PITCHER APP</strong> </a>
+    <button class="navbar-toggler" type="butto" data-toggle="collapse" data-target="#navbarSupportedContent-4"
+        aria-controls="navbarSupportedContent-4" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent-4">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="{{url_for('main.index')}}">Pitches</a>
+            </li>
+            {% if current_user.is_authenticated %}
+            <li class="nav-item">
+                <a class="nav-link" href="{{url_for('main.new_pitch')}}">New Pitch</a>
+            </li>
+            {% endif %}
+        </ul>
+        <ul class="navbar-nav ml-auto" style="text-align: right;">
+            {% if current_user.is_authenticated %}
 
-    <head>
-        <meta charset="utf-8">
-        <title></title>
-    </head>
-
-    <body>
-        <div class="navbar navbar-inverse" role="navigation">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="/"> Pitcher </a>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" style='margin-right:30px' data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-user"></i>&nbsp;<strong>{{current_user.username}}</strong> </a>
+                <div class="dropdown-menu dropdown-menu-right dropdown-info" aria-labelledby="navbarDropdownMenuLink-4">
+                    <a class="dropdown-item" href="{{url_for('main.profile',name=current_user.username)}}"><i
+                            class="far fa-user"></i>&nbsp; My account</a>
+                    <a class="dropdown-item" href="{{url_for('auth.logout')}}"><i class="fas fa-sign-out-alt"></i>&nbsp;
+                        Log out</a>
                 </div>
-                <div class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav">
-                        <li><a href="/">Home</a></li>
-                    </ul>
+            </li>
+            {% else %}
+            <li class="nav-item">
+                <a class="nav-link" href="{{url_for('auth.login')}}" style='margin-right:30px'><i
+                        ></i>&nbsp; <strong>Log In</strong></a>
+            </li>
+            <li class="nav-item">
+                <a style='margin-right:30px' class="nav-link" href="{{url_for('auth.signup')}}"><i
+                        ></i></i>&nbsp; <strong>Sign Up</strong></a>
+            </li>
+            {%endif%}
 
-                    <ul class="nav navbar-nav navbar-right">
-
-                </div>
-
-            </div>
-        </div>
-    </body>
-
-</html>
+        </ul>
+    </div>
+</nav>
