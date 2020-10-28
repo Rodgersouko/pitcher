@@ -1,2 +1,5 @@
-virtual/
-*.pyc
+virtual
+.env
+.vscode
+*pyc
+__pycache__

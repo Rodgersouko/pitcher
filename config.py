@@ -1,6 +1,6 @@
 import os
-# from dotenv import load_dotenv
-# load_dotenv()
+from dotenv import load_dotenv
+load_dotenv()
 
 class Config:
     '''
@@ -45,7 +45,7 @@ class DevConfig(Config):
     Args:
         Config: The parent configuration class with General configuration settings
     '''
-    pass
+
     
     DEBUG = True
 
