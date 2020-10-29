@@ -1,5 +1,5 @@
 # pitcher
-This is an app where users are able to post their pitches and get comments,downvotes or upvotes 
+This is an app where users login or sign-up as new users ,post their pitches and get comments,downvotes or upvotes  
 
 
 ## Installations
